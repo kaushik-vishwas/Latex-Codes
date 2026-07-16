@@ -1,0 +1,328 @@
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(13, 115, 119, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 20%, rgba(196, 92, 46, 0.08), transparent 50%),
+    linear-gradient(165deg, #dce6ec 0%, #e8f0f2 45%, #f0ebe6 100%);
+}
+
+.brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0d7377;
+  margin: 0 0 0.85rem;
+  line-height: 1.1;
+}
+
+.hero-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 500;
+  color: #1a2332;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.65rem;
+  line-height: 1.15;
+}
+
+.hero-sub {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 36ch;
+}
+
+/* —— Home —— */
+.home {
+  position: relative;
+  min-height: 100vh;
+  padding: 3.5rem 1.5rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-hero {
+  margin-bottom: 2.5rem;
+  animation: rise 0.7s ease both;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.35rem;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(26, 35, 50, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  animation: rise 0.6s ease both;
+}
+
+.photo-card--static {
+  cursor: default;
+}
+
+.photo-card:nth-child(1) { animation-delay: 0.04s; }
+.photo-card:nth-child(2) { animation-delay: 0.08s; }
+.photo-card:nth-child(3) { animation-delay: 0.12s; }
+.photo-card:nth-child(4) { animation-delay: 0.16s; }
+.photo-card:nth-child(5) { animation-delay: 0.2s; }
+.photo-card:nth-child(6) { animation-delay: 0.24s; }
+
+.photo-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #1a2332;
+}
+
+.photo-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card-body {
+  padding: 1rem 1.05rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.photo-card-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 550;
+  color: #1a2332;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.all-codes-header {
+  margin-bottom: 2rem;
+  animation: rise 0.55s ease both;
+}
+
+.topics-link {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0d7377;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.topics-link:hover {
+  border-bottom-color: #0d7377;
+}
+
+/* —— Code page —— */
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: 2.5rem 1.25rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.code-nav {
+  margin-bottom: 1.5rem;
+  animation: rise 0.5s ease both;
+}
+
+.back-link {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0d7377;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 35, 50, 0.08);
+  border-radius: 2px;
+  padding: 1.35rem 1.4rem 1.45rem;
+  animation: rise 0.65s ease both;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(26, 35, 50, 0.08);
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.card-num {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0d7377;
+}
+
+.card-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: #1a2332;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(13, 115, 119, 0.35);
+  background: transparent;
+  color: #0d7377;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #0d7377;
+  color: #fff;
+  border-color: #0d7377;
+}
+
+.copy-btn.copied {
+  background: #1a2332;
+  border-color: #1a2332;
+  color: #fff;
+}
+
+.section-label {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 0.55rem;
+}
+
+.card-question {
+  margin-bottom: 1.15rem;
+}
+
+.question-body {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.02rem;
+  color: #2d3748;
+  line-height: 1.65;
+}
+
+.math-display {
+  display: block;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.math-inline {
+  display: inline;
+}
+
+.code-block {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: #1a2332;
+  color: #e2e8f0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  border-radius: 2px;
+  white-space: pre;
+}
+
+.code-block code {
+  font-family: inherit;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(26, 35, 50, 0.1);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 540px) {
+  .home {
+    padding: 2.25rem 1rem 3rem;
+  }
+
+  .page {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .card {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+  }
+
+  .copy-btn {
+    width: 100%;
+  }
+}
