@@ -523,7 +523,21 @@ int main() {
     
     free(arr);
     return 0;
-}`
+}
+    # __________________Python Progam_____________
+    import matplotlib.pyplot as plt
+
+# Data collected
+n_values = [6000, 7000, 8000, 9000, 10000]
+time_taken = [0.031000, 0.034000, 0.047000, 0.052000, 0.077000]
+
+plt.plot(n_values, time_taken, marker='o')
+plt.title('Selection Sort Time Complexity')
+plt.xlabel('Number of Elements (n)')
+plt.ylabel('Time taken (seconds)')
+plt.grid(True)
+plt.show()`
+    
   },
   {
     id: 10,
@@ -594,7 +608,23 @@ int main() {
     
     free(arr);
     return 0;
-}`
+}
+    
+
+#_________________Python Program_________________
+import matplotlib.pyplot as plt
+
+# Example data collected
+n_values = [10000, 20000, 30000, 35000, 50000]
+time_taken = [0.000, 0.015, 0.011, 0.003, 0.015]  # Replace with actual times recorded
+
+plt.plot(n_values, time_taken, marker='o')
+plt.title('Quick Sort Time Complexity')
+plt.xlabel('Number of Elements (n)')
+plt.ylabel('Time taken (seconds)')
+plt.grid(True)
+plt.show()
+`
   },
   {
     id: 11,
@@ -691,7 +721,23 @@ int main() {
     
     free(arr);
     return 0;
-}`
+}
+#________________________Python Program______________
+
+import matplotlib.pyplot as plt
+
+# data collected (replace with actual data)
+n_values = [6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 15000]
+time_taken = [0.000709, 0.000752, 0.000916, 0.001493, 0.001589,
+              0.002562, 0.001944, 0.002961, 0.003563]  # Replace with actual times recorded
+
+plt.plot(n_values, time_taken, marker='o')
+plt.title('Merge Sort Time Complexity')
+plt.xlabel('Number of Elements (n)')
+plt.ylabel('Time taken (seconds)')
+plt.grid(True)
+plt.show()
+`
   },
   {
     id: 12,
