@@ -11,8 +11,6 @@ export default function AllCodesPage() {
         </Link>
       </nav>
 
-    
-
       <main className="list">
         {questions.map((item) => (
           <QuestionCard key={item.id} item={item} />

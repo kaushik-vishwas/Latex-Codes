@@ -1,6 +1,12 @@
+/**
+ * Full C/C++ Programs Dataset
+ * Contains 12 programs covering various DAA concepts
+ */
+
 const questions = [
   {
     id: 1,
+    title: "Kruskal's Algorithm - Minimum Cost Spanning Tree",
     question: "Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected undirected graph using Kruskal's algorithm.",
     answer: `#include <stdio.h>
 #define INF 999
@@ -20,6 +26,7 @@ void union1(int i, int j) {
 
 void kruskal(int n) {
     int i, j, k, u, v, min, res1, res2, sum = 0;
+    
     for (k = 1; k < n; k++) {
         min = INF;
         for (i = 1; i < n - 1; i++) {
@@ -42,7 +49,8 @@ void kruskal(int n) {
         t[k][2] = res2;
         sum = sum + min;
     }
-    printf("\\nCost of spanning tree is=%d", sum);
+    
+    printf("\\nCost of spanning tree is = %d", sum);
     printf("\\nEdges of spanning tree are:\\n");
     for (i = 1; i < n; i++)
         printf("%d -> %d\\n", t[i][1], t[i][2]);
@@ -50,32 +58,38 @@ void kruskal(int n) {
 
 int main() {
     int i, j, n;
-    printf("\\nEnter the n value:");
+    printf("\\nEnter the n value: ");
     scanf("%d", &n);
+    
     for (i = 1; i <= n; i++)
         p[i] = 0;
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
             scanf("%d", &c[i][j]);
+    
     kruskal(n);
     return 0;
 }`
   },
   {
     id: 2,
+    title: "Prim's Algorithm - Minimum Cost Spanning Tree",
     question: "Design and implement C/C++ Program to find Minimum Cost Spanning Tree of a given connected undirected graph using Prim's algorithm.",
     answer: `#include <stdio.h>
 #define INF 999
 
 int prim(int c[10][10], int n, int s) {
     int v[10], i, j, sum = 0, ver[10], d[10], min, u;
+    
     for (i = 1; i <= n; i++) {
         ver[i] = s;
         d[i] = c[s][i];
         v[i] = 0;
     }
     v[s] = 1;
+    
     for (i = 1; i <= n - 1; i++) {
         min = INF;
         for (j = 1; j <= n; j++)
@@ -85,7 +99,8 @@ int prim(int c[10][10], int n, int s) {
             }
         v[u] = 1;
         sum = sum + d[u];
-        printf("\\n%d -> %d sum=%d", ver[u], u, sum);
+        printf("\\n%d -> %d sum = %d", ver[u], u, sum);
+        
         for (j = 1; j <= n; j++)
             if (v[j] == 0 && c[u][j] < d[j]) {
                 d[j] = c[u][j];
@@ -97,21 +112,25 @@ int prim(int c[10][10], int n, int s) {
 
 int main() {
     int c[10][10], i, j, res, s, n;
-    printf("\\nEnter n value:");
+    printf("\\nEnter n value: ");
     scanf("%d", &n);
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
             scanf("%d", &c[i][j]);
-    printf("\\nEnter the source node:");
+    
+    printf("\\nEnter the source node: ");
     scanf("%d", &s);
+    
     res = prim(c, n, s);
-    printf("\\nCost=%d", res);
+    printf("\\nCost = %d", res);
     return 0;
 }`
   },
   {
-    id: 3,
+    id: "3a",
+    title: "Floyd's Algorithm - All-Pairs Shortest Path",
     question: "Design and implement C/C++ Program to solve All-Pairs Shortest Paths problem using Floyd's algorithm.",
     answer: `#include <stdio.h>
 #define INF 999
@@ -130,13 +149,16 @@ void floyd(int p[][10], int n) {
 
 int main() {
     int a[10][10], n, i, j;
-    printf("\\nEnter the n value:");
+    printf("\\nEnter the n value: ");
     scanf("%d", &n);
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
             scanf("%d", &a[i][j]);
+    
     floyd(a, n);
+    
     printf("\\nShortest path matrix\\n");
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= n; j++)
@@ -147,7 +169,8 @@ int main() {
 }`
   },
   {
-    id: 4,
+    id: "3b",
+    title: "Warshall's Algorithm - Transitive Closure",
     question: "Design and implement C/C++ Program to find the transitive closure using Warshall's algorithm.",
     answer: `#include <stdio.h>
 
@@ -156,18 +179,21 @@ void warsh(int p[][10], int n) {
     for (k = 1; k <= n; k++)
         for (i = 1; i <= n; i++)
             for (j = 1; j <= n; j++)
-                p[i][j] = p[i][j] || p[i][k] && p[k][j];
+                p[i][j] = p[i][j] || (p[i][k] && p[k][j]);
 }
 
 int main() {
     int a[10][10], n, i, j;
-    printf("\\nEnter the n value:");
+    printf("\\nEnter the n value: ");
     scanf("%d", &n);
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
             scanf("%d", &a[i][j]);
+    
     warsh(a, n);
+    
     printf("\\nResultant path matrix\\n");
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= n; j++)
@@ -178,18 +204,21 @@ int main() {
 }`
   },
   {
-    id: 5,
+    id: 4,
+    title: "Dijkstra's Algorithm - Shortest Path",
     question: "Design and implement C/C++ Program to find shortest paths from a given vertex in a weighted connected graph to other vertices using Dijkstra's algorithm.",
     answer: `#include <stdio.h>
 #define INF 999
 
 void dijkstra(int c[10][10], int n, int s, int d[10]) {
     int v[10], min, u, i, j;
+    
     for (i = 1; i <= n; i++) {
         d[i] = c[s][i];
         v[i] = 0;
     }
     v[s] = 1;
+    
     for (i = 1; i <= n; i++) {
         min = INF;
         for (j = 1; j <= n; j++)
@@ -206,22 +235,28 @@ void dijkstra(int c[10][10], int n, int s, int d[10]) {
 
 int main() {
     int c[10][10], d[10], i, j, s, n;
-    printf("\\nEnter n value:");
+    printf("\\nEnter n value: ");
     scanf("%d", &n);
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
             scanf("%d", &c[i][j]);
-    printf("\\nEnter the source node:");
+    
+    printf("\\nEnter the source node: ");
     scanf("%d", &s);
+    
     dijkstra(c, n, s, d);
+    
     for (i = 1; i <= n; i++)
         printf("\\nShortest distance from %d to %d is %d", s, i, d[i]);
+    
     return 0;
 }`
   },
   {
-    id: 6,
+    id: 5,
+    title: "Topological Ordering of Vertices",
     question: "Design and implement C/C++ Program to obtain the Topological ordering of vertices in a given digraph.",
     answer: `#include <stdio.h>
 
@@ -244,10 +279,12 @@ void sort(int a[][10], int id[], int n) {
 
 int main() {
     int a[10][10], id[10], n, i, j;
-    printf("\\nEnter the n value:");
+    printf("\\nEnter the n value: ");
     scanf("%d", &n);
+    
     for (i = 1; i <= n; i++)
         id[i] = 0;
+    
     printf("\\nEnter the graph data:\\n");
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++) {
@@ -255,11 +292,13 @@ int main() {
             if (a[i][j] == 1)
                 id[j]++;
         }
+    
     sort(a, id, n);
+    
     if (k != n)
         printf("\\nTopological ordering not possible");
     else {
-        printf("\\nTopological ordering is:");
+        printf("\\nTopological ordering is: ");
         for (i = 1; i <= k; i++)
             printf("%d ", temp[i]);
     }
@@ -267,7 +306,8 @@ int main() {
 }`
   },
   {
-    id: 7,
+    id: 6,
+    title: "0/1 Knapsack Problem - Dynamic Programming",
     question: "Design and implement C/C++ Program to solve 0/1 Knapsack problem using Dynamic Programming method.",
     answer: `#include <stdio.h>
 
@@ -287,20 +327,23 @@ int knap(int i, int m) {
 
 int main() {
     int m, i, max_profit;
-    printf("\\nEnter the no. of objects:");
+    printf("\\nEnter the no. of objects: ");
     scanf("%d", &n);
-    printf("\\nEnter the knapsack capacity:");
+    printf("\\nEnter the knapsack capacity: ");
     scanf("%d", &m);
+    
     printf("\\nEnter profit followed by weight:\\n");
     for (i = 1; i <= n; i++)
         scanf("%d %d", &p[i], &w[i]);
+    
     max_profit = knap(1, m);
-    printf("\\nMax profit=%d", max_profit);
+    printf("\\nMax profit = %d", max_profit);
     return 0;
 }`
   },
   {
-    id: 8,
+    id: 7,
+    title: "Discrete & Continuous Knapsack - Greedy Method",
     question: "Design and implement C/C++ Program to solve discrete Knapsack and continuous Knapsack problems using greedy approximation method.",
     answer: `#include <stdio.h>
 #define MAX 50
@@ -311,26 +354,32 @@ int n, m, i;
 
 void greedyKnapsack(int n, int w[], int p[], int m) {
     double ratio[MAX];
+    
     for (i = 0; i < n; i++) {
         ratio[i] = (double)p[i] / w[i];
     }
+    
     for (i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (ratio[i] < ratio[j]) {
                 double temp = ratio[i];
                 ratio[i] = ratio[j];
                 ratio[j] = temp;
+                
                 int temp2 = w[i];
                 w[i] = w[j];
                 w[j] = temp2;
+                
                 temp2 = p[i];
                 p[i] = p[j];
                 p[j] = temp2;
             }
         }
     }
+    
     int currentWeight = 0;
     maxprofit = 0.0;
+    
     for (i = 0; i < n; i++) {
         if (currentWeight + w[i] <= m) {
             x[i] = 1;
@@ -342,6 +391,7 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
             break;
         }
     }
+    
     printf("Optimal solution for greedy method: %.1f\\n", maxprofit);
     printf("Solution vector for greedy method: ");
     for (i = 0; i < n; i++)
@@ -351,21 +401,26 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
 int main() {
     printf("Enter the number of objects: ");
     scanf("%d", &n);
+    
     printf("Enter the objects' weights: ");
     for (i = 0; i < n; i++)
         scanf("%d", &w[i]);
+    
     printf("Enter the objects' profits: ");
     for (i = 0; i < n; i++)
         scanf("%d", &p[i]);
+    
     printf("Enter the maximum capacity: ");
     scanf("%d", &m);
+    
     greedyKnapsack(n, w, p, m);
     return 0;
 }`
   },
   {
-    id: 9,
-    question: "Design and implement C/C++ Program to find a subset of a given set S = {s1, s2,...,sn} of n positive integers whose sum is equal to a given positive integer d.",
+    id: 8,
+    title: "Subset Sum Problem using Backtracking",
+    question: "Design and implement C/C++ Program to find a subset of a given set S = {s1, s2,....., sn} of n positive integers whose sum is equal to a given positive integer d.",
     answer: `#include <stdio.h>
 #define MAX 10
 
@@ -374,6 +429,7 @@ int s[MAX], x[MAX], d;
 void sumofsub(int p, int k, int r) {
     int i;
     x[k] = 1;
+    
     if ((p + s[k]) == d) {
         for (i = 1; i <= k; i++)
             if (x[i] == 1)
@@ -381,6 +437,7 @@ void sumofsub(int p, int k, int r) {
         printf("\\n");
     } else if (p + s[k] + s[k + 1] <= d)
         sumofsub(p + s[k], k + 1, r - s[k]);
+    
     if ((p + r - s[k] >= d) && (p + s[k + 1] <= d)) {
         x[k] = 0;
         sumofsub(p, k + 1, r - s[k]);
@@ -389,24 +446,30 @@ void sumofsub(int p, int k, int r) {
 
 int main() {
     int i, n, sum = 0;
-    printf("\\nEnter the n value:");
+    printf("\\nEnter the n value: ");
     scanf("%d", &n);
-    printf("\\nEnter the set in increasing order:");
+    
+    printf("\\nEnter the set in increasing order: ");
     for (i = 1; i <= n; i++)
         scanf("%d", &s[i]);
-    printf("\\nEnter the max subset value:");
+    
+    printf("\\nEnter the max subset value: ");
     scanf("%d", &d);
+    
     for (i = 1; i <= n; i++)
         sum = sum + s[i];
+    
     if (sum < d || s[1] > d)
         printf("\\nNo subset possible");
     else
         sumofsub(0, 1, sum);
+    
     return 0;
 }`
   },
   {
-    id: 10,
+    id: 9,
+    title: "Selection Sort - Time Complexity Analysis (Python Code)",
     question: "Design and implement C/C++ Program to sort a given set of n integer elements using Selection Sort method and compute its time complexity.",
     answer: `#include <stdio.h>
 #include <stdlib.h>
@@ -437,27 +500,34 @@ int main() {
     int n;
     printf("Enter number of elements: ");
     scanf("%d", &n);
+    
     if (n <= 5000) {
         printf("Please enter a value greater than 5000\\n");
         return 1;
     }
+    
     int *arr = (int *)malloc(n * sizeof(int));
     if (arr == NULL) {
         printf("Memory allocation failed\\n");
         return 1;
     }
+    
     generateRandomNumbers(arr, n);
+    
     clock_t start = clock();
     selectionSort(arr, n);
     clock_t end = clock();
+    
     double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to sort %d elements: %f seconds\\n", n, time_taken);
+    
     free(arr);
     return 0;
 }`
   },
   {
-    id: 11,
+    id: 10,
+    title: "Quick Sort - Time Complexity Analysis (Python Code)",
     question: "Design and implement C/C++ Program to sort a given set of n integer elements using Quick Sort method and compute its time complexity.",
     answer: `#include <stdio.h>
 #include <stdlib.h>
@@ -472,6 +542,7 @@ void swap(int* a, int* b) {
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = (low - 1);
+    
     for (int j = low; j <= high - 1; j++) {
         if (arr[j] < pivot) {
             i++;
@@ -500,27 +571,131 @@ int main() {
     int n;
     printf("Enter number of elements: ");
     scanf("%d", &n);
+    
     if (n <= 5000) {
         printf("Please enter a value greater than 5000\\n");
         return 1;
     }
+    
     int *arr = (int *)malloc(n * sizeof(int));
     if (arr == NULL) {
         printf("Memory allocation failed\\n");
         return 1;
     }
+    
     generateRandomNumbers(arr, n);
+    
     clock_t start = clock();
     quickSort(arr, 0, n - 1);
     clock_t end = clock();
+    
     double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken to sort %d elements: %f seconds\\n", n, time_taken);
+    
+    free(arr);
+    return 0;
+}`
+  },
+  {
+    id: 11,
+    title: "Merge Sort - Time Complexity Analysis (Python Code)",
+    question: "Design and implement C/C++ Program to sort a given set of n integer elements using Merge Sort method and compute its time complexity.",
+    answer: `#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void merge(int arr[], int left, int mid, int right) {
+    int i, j, k;
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    
+    int *L = (int *)malloc(n1 * sizeof(int));
+    int *R = (int *)malloc(n2 * sizeof(int));
+    
+    for (i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+    
+    i = 0;
+    j = 0;
+    k = left;
+    
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+    
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+    
+    free(L);
+    free(R);
+}
+
+void mergeSort(int arr[], int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+}
+
+void generateRandomArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        arr[i] = rand() % 100000;
+}
+
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    
+    if (n <= 5000) {
+        printf("Please enter a value greater than 5000\\n");
+        return 1;
+    }
+    
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        printf("Memory allocation failed\\n");
+        return 1;
+    }
+    
+    generateRandomArray(arr, n);
+    
+    clock_t start = clock();
+    for (int i = 0; i < 1000; i++) {
+        mergeSort(arr, 0, n - 1);
+    }
+    clock_t end = clock();
+    
+    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC / 1000.0;
+    printf("Time taken to sort %d elements: %f seconds\\n", n, time_taken);
+    
     free(arr);
     return 0;
 }`
   },
   {
     id: 12,
+    title: "N Queen's Problem using Backtracking",
     question: "Design and implement C/C++ Program for N Queen's problem using Backtracking.",
     answer: `#include <stdio.h>
 #include <stdlib.h>
@@ -537,21 +712,25 @@ void printSolution(int **board, int N) {
 
 bool isSafe(int **board, int N, int row, int col) {
     int i, j;
+    
     for (i = 0; i < col; i++) {
         if (board[row][i]) {
             return false;
         }
     }
+    
     for (i = row, j = col; i >= 0 && j >= 0; i--, j--) {
         if (board[i][j]) {
             return false;
         }
     }
+    
     for (i = row, j = col; j >= 0 && i < N; i++, j--) {
         if (board[i][j]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -559,12 +738,15 @@ bool solveNQUtil(int **board, int N, int col) {
     if (col >= N) {
         return true;
     }
+    
     for (int i = 0; i < N; i++) {
         if (isSafe(board, N, i, col)) {
             board[i][col] = 1;
+            
             if (solveNQUtil(board, N, col + 1)) {
                 return true;
             }
+            
             board[i][col] = 0;
         }
     }
@@ -579,6 +761,7 @@ bool solveNQ(int N) {
             board[i][j] = 0;
         }
     }
+    
     if (!solveNQUtil(board, N, 0)) {
         printf("Solution does not exist\\n");
         for (int i = 0; i < N; i++) {
@@ -587,7 +770,9 @@ bool solveNQ(int N) {
         free(board);
         return false;
     }
+    
     printSolution(board, N);
+    
     for (int i = 0; i < N; i++) {
         free(board[i]);
     }

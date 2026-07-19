@@ -4,6 +4,8 @@ import QuestionCard from "../components/QuestionCard";
 
 export default function CodePage() {
   const { id } = useParams();
+  
+  // Handle both numeric and string IDs (e.g., "3a", "3b")
   const item = questions.find((q) => String(q.id) === String(id));
 
   if (!item) {
